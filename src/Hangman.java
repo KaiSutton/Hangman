@@ -1,7 +1,14 @@
+import acm.program.GraphicsProgram;
 
+public class Hangman extends GraphicsProgram {
 
-public class Hangman {
+    @Override
+    public void init (){
 
+    }
 
+    public static void main(String[] args) {
+        new Hangman().start();
+    }
 
 }
