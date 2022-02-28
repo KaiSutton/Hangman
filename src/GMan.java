@@ -48,4 +48,15 @@ public class GMan extends GCompound {
         add(rope);
     }
 
+    public void setManVis(boolean a){
+        head.setVisible(a);
+        body.setVisible(a);
+        arm1.setVisible(a);
+        arm2.setVisible(a);
+        leg1.setVisible(a);
+        leg2.setVisible(a);
+
+    }
+
+
 }
