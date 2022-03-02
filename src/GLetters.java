@@ -8,7 +8,8 @@ import java.awt.*;
 
 public class GLetters extends GCompound {
 
-    Word words = new Word();
+    public Word words = new Word();
+
     public GLabel[] gAlphabet = new GLabel[26];
     public int numLetters = 6;
     public GRect[] lines = new GRect[6];

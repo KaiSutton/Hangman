@@ -1,13 +1,15 @@
 import acm.program.GraphicsProgram;
 import svu.csc213.Dialog;
-
+import acm.util.RandomGenerator;
 import java.awt.*;
 
 public class Hangman extends GraphicsProgram {
 
-
     GMan stickman = new GMan();
     GLetters letters = new GLetters();
+
+    int rand = RandomGenerator.getInstance().nextInt(0, letters.words.words.length);
+    public String word = letters.words.words[rand];
 
     public int lives = 6;
 
@@ -32,9 +34,11 @@ public class Hangman extends GraphicsProgram {
         if(pGuess.length() != 1){
             Dialog.showMessage("that wasn't a single letter, try again");
             pGuess = Dialog.getString("Enter a 1 letter guess");
-            
         }
 
+        if(word.contains(pGuess)){
+            
+        }
 
     }
 
