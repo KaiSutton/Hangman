@@ -6,6 +6,8 @@ public class Word {
     public char[] alphabet = new char[26];
     public boolean[] lettersUsed = new boolean[26];
 
+
+
     public void setWords(){
         words[0] = "branch";
         words[1] = "camera";

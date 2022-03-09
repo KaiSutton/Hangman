@@ -8,9 +8,6 @@ public class Hangman extends GraphicsProgram {
     GMan stickman = new GMan();
     GLetters letters = new GLetters();
 
-    int rand = RandomGenerator.getInstance().nextInt(0, letters.words.words.length);
-    public String word = letters.words.words[rand];
-
     public int lives = 6;
 
     @Override
@@ -20,6 +17,7 @@ public class Hangman extends GraphicsProgram {
         stickman.addMan();
         stickman.addStand();
         letters.addAlphabet();
+        letters.addLetters();
         add(stickman, getWidth() - stickman.getWidth(), getHeight() - stickman.getHeight());
         add(letters, getWidth()/2 - letters.getWidth()/2, 0+letters.getHeight());
         stickman.setManVis(false);
@@ -36,11 +34,13 @@ public class Hangman extends GraphicsProgram {
             pGuess = Dialog.getString("Enter a 1 letter guess");
         }
 
-        if(word.contains(pGuess)){
-            
+        if(letters.word.contains(pGuess)){
+
         }
 
     }
+
+
 
 
 
