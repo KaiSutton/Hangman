@@ -17,11 +17,8 @@ public class GLetters extends GCompound {
 
     int rand = RandomGenerator.getInstance().nextInt(0, words.words.length);
     public String word;
-    public GLabel[] letters = {new GLabel (word.charAt(1) + " "), new GLabel(word.charAt(2)  + " "), new GLabel(word.charAt(3)  + " "), new GLabel(word.charAt(4)  + " "), new GLabel(word.charAt(5)  + " "), new GLabel(word.charAt(6)  + " ")};
+    public GLabel[] letters = new GLabel[6];
 
-    public void setWord(){
-        word = words.words[rand];
-    }
 
     public void addLines(){
         for (int i = 0; i < 6; i++) {
@@ -42,10 +39,15 @@ public class GLetters extends GCompound {
     }
 
     public void addLetters(){
-        setWord();
+        word = words.words[rand];
+
         for (int i = 0; i < 6; i++) {
-            add(letters[i], lines[i].getX() + lines[i].getWidth()/2, lines[i].getY() +5);
+            letters[i] = new GLabel (word.charAt(i) + " ");
+        }
+
+        for (int i = 0; i < 6; i++) {
+            add(letters[i], lines[i].getX() + lines[i].getWidth()/2 -letters[i].getWidth()/2, lines[i].getY() +(-5));
+            letters[i].setVisible(false);
         }
     }
-
 }
