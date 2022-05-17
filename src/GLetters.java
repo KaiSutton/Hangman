@@ -50,4 +50,14 @@ public class GLetters extends GCompound {
             letters[i].setVisible(false);
         }
     }
+
+    public void setLettersUsed(){
+        for (int i = 0; i < 26; i++) {
+            words.lettersUsed[i] = true;
+        }
+    }
+
+    public void setLetterVisibility(int w){
+        letters[w].setVisible(true);
+    }
 }

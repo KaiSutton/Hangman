@@ -1,10 +1,8 @@
-import acm.graphics.GCompound;
-import acm.graphics.GLine;
-import acm.graphics.GOval;
-import acm.graphics.GRect;
+import acm.graphics.*;
 import acm.program.GraphicsProgram;
 
 import java.awt.*;
+
 
 public class GMan extends GCompound {
 
@@ -15,6 +13,9 @@ public class GMan extends GCompound {
     public GLine arm2 = new GLine(body.getX(), body.getY() + body.getHeight()/2, body.getX()-25, (body.getY() + body.getHeight()/2) -25);
     public GLine leg1 = new GLine(body.getX(), body.getY() + body.getHeight(), body.getX()-25, body.getY() + body.getHeight() +25);
     public GLine leg2 = new GLine(body.getX(), body.getY() + body.getHeight(), body.getX()+25, body.getY()+ body.getHeight() +25);
+
+    //adds all the body parts to an array
+
 
     //declares the stand
     public GRect btm = new GRect(150, 15);
@@ -57,6 +58,5 @@ public class GMan extends GCompound {
         leg2.setVisible(a);
 
     }
-
 
 }

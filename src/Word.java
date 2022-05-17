@@ -2,7 +2,7 @@
 
 public class Word {
 
-    public String[] words = new String[20];
+    public String[] words = new String[9];
     public char[] alphabet = new char[26];
     public boolean[] lettersUsed = new boolean[26];
 
@@ -10,26 +10,14 @@ public class Word {
 
     public void setWords(){
         words[0] = "branch";
-        words[1] = "camera";
-        words[2] = "circle";
-        words[3] = "danger";
-        words[4] = "empire";
-        words[5] = "engine";
-        words[6] = "friend";
-        words[7] = "health";
-        words[8] = "island";
-        words[9] = "letter";
-        words[10] = "luxury";
-        words[11] = "marine";
-        words[12] = "nobody";
-        words[13] = "planet";
-        words[14] = "random";
-        words[15] = "senior";
-        words[16] = "talent";
-        words[17] = "yellow";
-        words[18] = "wonder";
-        words[19] = "valley";
-
+        words[1] = "danger";
+        words[2] = "friend";
+        words[3] = "island";
+        words[4] = "marine";
+        words[5] = "planet";
+        words[6] = "random";
+        words[7] = "senior";
+        words[8] = "wonder";
     }
 
     public void setAlphabet(){
@@ -62,10 +50,6 @@ public class Word {
 
     }
 
-    public void setLettersUsed(){
-        for (int i = 0; i < 26; i++) {
-            lettersUsed[i] = true;
-        }
-    }
+
 
 }

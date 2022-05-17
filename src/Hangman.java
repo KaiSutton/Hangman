@@ -1,3 +1,4 @@
+import acm.graphics.GObject;
 import acm.program.GraphicsProgram;
 import svu.csc213.Dialog;
 import acm.util.RandomGenerator;
@@ -7,6 +8,8 @@ public class Hangman extends GraphicsProgram {
 
     GMan stickman = new GMan();
     GLetters letters = new GLetters();
+    public GObject[] parts = new GObject[]{stickman.head, stickman.body, stickman.arm1, stickman.arm2, stickman.leg1, stickman.leg2};
+
 
     public int correctGuesses = 0;
 
@@ -14,7 +17,7 @@ public class Hangman extends GraphicsProgram {
 
     @Override
     public void init (){
-        letters.words.setLettersUsed();
+        letters.setLettersUsed();
         letters.addLines();
         stickman.addMan();
         stickman.addStand();
@@ -32,12 +35,13 @@ public class Hangman extends GraphicsProgram {
 
     private void gameLoop(){
         while (0 == 0){
-            if (correctGuesses != 6 && lives > 0){
+            if (correctGuesses <= 6 && lives > 0){
                 guess();
             }else if (lives <= 0){
                 Dialog.showMessage("You failed you idiot");
                 System.exit(0);
-            } else if (correctGuesses == 6){
+            }
+            if (correctGuesses == 6){
                 Dialog.showMessage("You beat the game good job");
                 System.exit(0);
             }
@@ -50,17 +54,17 @@ public class Hangman extends GraphicsProgram {
         if(pGuess.length() != 1){
             Dialog.showMessage("that wasn't a single letter, try again");
             pGuess = Dialog.getString("Enter a 1 letter guess");
-        }
-
-        if(letters.word.contains(pGuess)){
+        }else if (letters.word.contains(pGuess)){
             correctGuess(pGuess.charAt(0));
         }else{
             bakaGuess();
         }
+
     }
 
     private void bakaGuess() {
         lives -= 1;
+        parts[5-lives].setVisible(true);
         gameLoop();
     }
 
@@ -68,15 +72,21 @@ public class Hangman extends GraphicsProgram {
         //tells where the letter is
         boolean found = false;
         int where = 0;
-        while (found = false){
+        while (found == false){
+
             if (letters.word.charAt(where) == a){
-                letters.letters[where].setVisible(true);
                 correctGuesses += 1;
                 found = true;
+                if(found == true){
+                    letters.letters[where].setVisible(true);
+                }
+
             }else {
                 where += 1;
             }
         }
+
+
 
     }
 
